@@ -1,0 +1,133 @@
+body {
+  /* background-image: url('/assets/logo.png');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover; */
+  font-family: Helvetica;
+  margin: 0;
+}
+
+a {
+  text-decoration: none;
+  color: #000;
+}
+
+.site-header {
+  border-bottom: 1px solid #ccc;
+  padding: .5em 1em;
+  display: flex;
+  justify-content: space-between;
+}
+
+.site-identity h1 {
+  font-size: 1.5em;
+  margin: .6em 0;
+  display: inline-block;
+}
+
+
+.site-navigation ul,
+.site-navigation li {
+  margin: 0;
+  padding: 0;
+}
+
+.site-navigation li {
+  display: inline-block;
+  margin: 1.4em 1em 1em 1em;
+}
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0
+}
+
+ul>li {
+  padding: 4px;
+  color: #acb4e7;
+}
+
+ul>li:hover {
+  color: #957bda;
+  cursor: pointer
+}
+
+#l:hover {
+  color: #957bda;
+  cursor: pointer
+}
+
+hr {
+  border-width: 3px
+}
+
+.card {
+  padding: 2% 7%;
+  background-color: " #f4464600";
+}
+
+.social>i {
+  padding: 1%;
+  font-size: 15px
+}
+
+.social>i:hover {
+  color: #957bda;
+  cursor: pointer
+}
+
+.policy>div {
+  padding: 4px
+}
+
+.heading {
+  font-family: 'Titillium Web', sans-serif;
+  color: black
+}
+
+.divider {
+  border-top: 2px solid
+}
+/*Date And Time*/
+#hii{
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  /* background-color: rgb(27, 32, 36); */
+  }
+#main{
+  margin: 0 auto 0;
+  margin-top: 8%;
+  border: 4px solid rgb(175, 99, 0);
+  border-left: 0px;
+  border-right: 0px;
+  width: 800px;
+  height: 300px;
+  position: relative;
+}
+#clock{
+  height: 70%;
+  font-size: 142px;
+  color: rgb(7, 7, 7);
+  text-align: left;
+}
+#date{
+  font-size: 52px;
+  color:rgb(175, 99, 0);
+}
+#log{
+  color: rgb(7, 7, 7);
+}
+.card-title{
+  font-size: xx-large;
+}
+.catrd-text{
+  font-size: larger;
+}
+.card{
+  border-radius: 15px;
+  border-color: rgb(61, 59, 59);
+}
+.card:hover{
+  transition: 0.2s ease-in-out;
+    transform: scale(0.9);
+}

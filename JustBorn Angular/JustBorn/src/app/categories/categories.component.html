@@ -1,0 +1,21 @@
+<button type="submit" class="btn btn-primary" align="left" routerLink="/header"><i class="fa fa-arrow-left"></i><b>  Back</b></button>
+<button type="submit" class="btn btn-primary" style="float: right;" routerLink="" (click)="success()"><i class="fa fa-sign-out" aria-hidden="true"></i><b>  LogOut</b></button>
+<h1 align="center"><b>Categories</b></h1>
+<div class="container">
+  <table class="table table-bordered table-stripped table-hover">
+    <thead class="bg-primary">
+      <tr>
+        <th>Category Id</th>
+        <th>Category Name</th>
+        <th>No of Products</th>
+      </tr>
+    </thead>
+    <tbody *ngFor="let c of category" class="bg-muted">
+      <tr>
+        <td>{{c.c_id}}</td>
+        <td>{{c.c_list}}</td>
+        <td>{{c.count}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

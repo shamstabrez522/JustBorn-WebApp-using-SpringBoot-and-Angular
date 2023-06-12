@@ -1,0 +1,93 @@
+<body id="body">
+    <header>
+        <div class="navbar navbar-dark shadow-sm" style="padding-top: 2%;">
+            <div class="navbar-brand align-item-left d-flex">
+                <i style="font-size: 40px;" class="fa fa-shopping-bag">&nbsp;</i>
+                <strong style="font-size: 70px;"><span id="ju"><b>J</b></span><span id="uj"><b>UST</b></span><span
+                        id="ju"><b>B</b></span><span id="uj"><b>ORN</b></span></strong>
+            </div>
+            <form #value="ngForm" (ngSubmit)="searchh(value.value)">
+                <input type="text" ngModel name="search" #name="ngModel" width="30px" class="form-control mb-3 col-md-3"
+                    placeholder="Search Product By Name..........">
+                <button type="submit" class="btn btn-danger" style="font-size: 18px; ">
+                    <i class="fa fa-search" aria-hidden="true"></i></button>
+            </form>
+            <button routerLink="addtocart" class="btn btn-danger">
+                <i routerLink="addtocart" style="font-size: 40px;" class="fas fa-cart-plus"></i>
+                <div style="font-size: 8px;" class="badge bg-light">{{totalProduct}}</div>
+            </button>
+            <!-- <div class="chip">
+                <img src="https://freesvg.org/img/abstract-user-flat-3.png" alt="Person" width="96" height="96">
+                <h4 style="color: white;">{{thisUser.u_name}}</h4>
+            </div> -->
+            <div class="wrapper">
+                <div class="button">
+                    <div class="icon">
+                        <i class="fa fa-user"></i>
+                    </div>
+                    <span>{{thisUser.u_name}}</span>
+                </div>
+            </div>
+            <button type="submit" class="btn btn-danger" style="float: right; font-size: 18px;"
+                (click)="success()"><i class="fa fa-sign-out" aria-hidden="true"></i><b>LogOut</b></button>
+        </div>
+    </header>
+    <!--  -->
+    <div class="card-top container-fluid">
+        <div class="container d-flex">
+            <div class="item">
+                <button id="allbutton" (click)=refreshPage()><b>All</b></button>
+            </div>
+            <div class="item">
+                <button id="allbutton" (click)=search(101)><b>Boys</b></button>
+            </div>
+            <div class="item">
+                <button id="allbutton" (click)=search(102)><b>Girls</b></button>
+            </div>
+            <div class="item">
+                <button id="allbutton" (click)=search(103)><b>Toys</b></button>
+            </div>
+            <div class="item">
+                <button id="allbutton" (click)=search(104)><b>Baby Products</b></button>
+            </div>
+        </div>
+    </div>
+    <br><br>
+    <div class="container">
+        <div class="col-md-3 col-sm-3 col-xs-3">
+            <li (click)="searching()"><img
+                    src="https://i.pinimg.com/originals/b4/b7/50/b4b7509a01ab4d606c26705699024048.gif" alt="no"
+                    width="250px"></li>
+        </div>
+        <div class="col-md-6 col-sm-6 col-xs-6">
+            <li (click)="searching()"><img
+                    src="https://images-eu.ssl-images-amazon.com/images/G/31/img22/Toys/pc-ingress.gif" alt="no"
+                    width="100%"></li>
+        </div>
+        <div class="col-md-3 col-sm-3 col-xs-3">
+            <li (click)="searching()"><img src="https://media.tenor.com/lPv_dkScuzgAAAAC/christmas-outfit-kids.gif"
+                    alt="no" width="250px" length="350px"></li>
+        </div>
+    </div>
+    <!-- Display -->
+    <br><br>
+    <div class="container">
+        <div class="row">
+            <ng-container *ngFor="let p of product">
+                <div class="card col-md-3">
+                    <img style="width: 100%;" src="{{p.p_img}}" alt="">
+                    <h5 style="white-space: nowrap;overflow: hidden;text-overflow: ellipsis;max-width: 100ch;">
+                        {{p.p_name}}
+                    </h5>
+                    <p style="white-space: nowrap;overflow: hidden;text-overflow: ellipsis;max-width: 100ch;">
+                        {{p.p_desc}}
+                    </p>
+                    <p><strong>Quantity:</strong>{{p.a_quan}} Qty</p>
+                    <p><strong>Price:</strong> Rs.{{p.p_price | currency:'INR'}}</p>
+                    <button class="btn btn-danger" (click)=addtocart(p)>Add to cart</button>
+                </div>
+            </ng-container>
+
+        </div>
+    </div>
+</body>

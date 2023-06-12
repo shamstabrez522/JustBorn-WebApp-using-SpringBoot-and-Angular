@@ -1,0 +1,94 @@
+<img src="/assets/logo.png" alt="JustBorn" style="display: block;margin-left: auto;margin-right: auto;width: 15%;">
+<h1 align="center" style="font-size: xx-large;"><b>Registration Form</b></h1>
+<br><br>
+<div class="container">
+  <form #regForm="ngForm" (ngSubmit)="register(regForm.value)" novalidate>
+    <br><br>
+    <fieldset>
+      <legend for="u_name"> Name<span>*</span>:</legend>
+      <div *ngIf="u_name.errors?.['required'] && u_name.touched"></div>
+      <input type="text" ngModel name="u_name" pattern="^[a-zA-Z ]*$" #u_name="ngModel" id="in" placeholder="JustBorn"
+        required [class.is-invalid]="u_name.invalid && u_name.touched " style="width: 40%;">
+      <div *ngIf="u_name.errors && (u_name.dirty && u_name.touched)" class="alert-u_name alert-danger-u_name">
+        <br>
+        <div [hidden]="!u_name.errors['pattern']" id="emsg">
+          Please Enter a Valid Name
+        </div>
+      </div>
+    </fieldset>
+    <br><br>
+    <fieldset>
+      <legend> Gender<span>*</span>:</legend>
+      <div *ngIf="u_gender.errors?.['required'] && u_gender.touched">Please Select Gender</div>
+      <input type="radio" ngModel name="u_gender" #u_gender="ngModel" value="Male" required>
+      <label for="male">Male</label>&nbsp;&nbsp;
+      <input type="radio" ngModel name="u_gender" #u_gender="ngModel" value="Female" required>
+      <label for="female">Female</label>&nbsp;&nbsp;
+      <input type="radio" ngModel name="u_gender" #u_gender="ngModel" value="Others" required>
+      <label for="others">Others</label>
+    </fieldset>
+    <br><br>
+    <fieldset>
+      <legend> Type<span>*</span>:</legend>
+      <!-- <div *ngIf="u_type.errors?.['required'] && u_type.touched">Please Select Type</div> -->
+      <select id="in" ngModel name="u_type" #u_type="ngModel" >
+        <option style="font-size: x-large;">Select</option>
+        <option value="User" style="font-size: x-large;">User</option>
+      </select>
+    </fieldset><br><br>
+    <fieldset>
+      <div *ngIf="u_mailid.errors?.['required'] && u_mailid.touched">Please Enter MailId number</div>
+      <legend for="u_mailid">MailId<span>*</span>:</legend>
+      <input type="text" ngModel name="u_mailid" #u_mailid="ngModel" id="in" placeholder="jb@gmail.com"
+        pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" required
+        [class.is-invalid]="u_mailid.invalid && u_mailid.touched " style="width: 40%;">
+      <div *ngIf="u_mailid.errors && (u_mailid.dirty && u_mailid.touched)" class="alert-u_mailid alert-danger-u_mailid">
+        <br>
+
+        <div [hidden]="!u_mailid.errors['pattern']" id="emsg">
+          Please Enter a Valid Gmail.
+        </div>
+      </div>
+    </fieldset>
+    <br><br>
+    <fieldset>
+      <legend for="u_phone">Phone<span>*</span>:</legend>
+      <div *ngIf="u_phone.errors?.['required'] && u_phone.touched">Please Enter Phone Number</div>
+      <input type="text" ngModel name="u_phone" #u_phone="ngModel"
+        pattern="^(?:(?:\+|0{0,2})91(\s*[\-]\s*)?|[0]?)?[789]\d{9}$" required id="in" placeholder="9XXXXXXXXX"
+        [class.is-invalid]="u_phone.invalid && u_phone.touched " style="width: 40%;">
+      <div *ngIf="u_phone.errors && (u_phone.dirty && u_phone.touched)" class="alert-u_phone alert-danger-u_phone"><br>
+        <div [hidden]="!u_phone.errors['pattern']" id="emsg">
+          Please Enter a Valid Phone Number.
+        </div>
+      </div>
+    </fieldset>
+    <br><br>
+    <fieldset>
+      <legend for="password">Password<span>*</span>:</legend>
+      <div *ngIf="password.errors?.['required'] && password.touched">Please Enter Password</div>
+      <input type="password" ngModel name="password" #password="ngModel" id="in"
+        pattern="(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[$@$!%*?&])[A-Za-z\d$@$!%*?&].{7}" maxlength=8 required
+        [class.is-invalid]="password.invalid && password.touched " style="width: 40%;">
+      <div *ngIf="password.errors && (password.dirty && password.touched)" class="alert-password alert-danger-password">
+        <br>
+        <div [hidden]="!password.errors['pattern']" id="emsg">
+          Password is Too Weak. <br><br>
+          At least 8 characters in length<br><br>
+          At least Lowercase letter<br><br>
+          At least Uppercase letter<br><br>
+          At least Number<br><br>
+          At least Special character<br><br>
+        </div>
+      </div>
+    </fieldset>
+    <br><br>
+    <fieldset>
+      <button type="submit" class="btn btn-info" routerLink="/signin" style="font-size: 15px;"><i
+          class="fa fa-arrow-left"></i><b> Back</b></button>&nbsp;&nbsp;
+      <button type="reset" value="Reset" class="btn btn-info" style="font-size: 15px;"><b>Reset</b></button>&nbsp;&nbsp;
+      <button type="submit" [disabled]="regForm.invalid" class="btn btn-info"
+        style="font-size: 15px;"><b>SignUp</b></button>
+    </fieldset>
+  </form>
+</div>

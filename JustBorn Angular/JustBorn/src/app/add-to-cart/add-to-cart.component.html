@@ -1,0 +1,73 @@
+<button routerLink="/userpage" class="btn btn-info" style="font-size: 15px;"><i class="fa fa-chevron-circle-left" aria-hidden="true"></i>
+ Back</button>
+<ng-container *ngIf="cart.length !=0">
+    <div class="container">
+        <div class="card-table">
+            <div class="cart-product">
+                <table class="table table-responsive">
+                    <thead>
+                        <tr>
+                            <th>Order Id</th>
+                            <th>Product Image</th>
+                            <th>Product Name</th>
+                            <!-- <th>User Id</th> -->
+                            <th>User Name</th>
+                            <th>User Phone</th>
+                            <!-- <th>Product Id</th> -->
+                            <th>Quantity</th>
+                            <th>Product Price</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <script src="assets/js/validation.js"></script>
+                        <tr *ngFor="let p of cart;let i= index">
+                            <td>{{p.o_id}}</td>
+                            <td><img style="width: 120px;" src={{p.p_img}} alt=""></td>
+                            <td>{{p.p_name}}</td>
+                            <!-- <td style="width:25%">{{p.u_id}}</td> -->
+                            <td style="width:12%">{{p.u_name}}</td>
+                            <td style="width:12%">{{p.u_phone}}</td>
+                            <!-- <td>{{p.p_id}}</td> -->
+                            <td><input type="number" [(ngModel)]="p.qty" min="1" max="10"></td>
+                            <td style="width:12%"> {{p.p_price | total: p.qty|currency:'INR'}}</td>
+                            <td>
+                                <button (click)="updateqty(p)" class="btn btn-info"><i
+                                        class="fa fa-refresh"></i></button>
+                                <button (click)="removeproduct(p)" class="btn btn-danger"><i
+                                        class="fas fa-trash-alt"></i></button>
+                            </td>
+
+                        </tr>
+                        <tr>
+                            <td colspan="4"></td>
+                            <!-- <td><button (click)="emptycart()" class="btn btn-danger">Empty Cart</button></td> -->
+                            <td><button routerLink="/userpage" class="btn btn-info">Order More</button></td>
+                            <td><strong>Grand Total : {{grandTotal | currency:'INR'}}</strong></td>
+
+                            <td><button class="btn btn-success" (click)="pay()">Place Order</button></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</ng-container>
+
+
+
+
+<ng-container *ngIf="cart.length==0">
+    <div class="container">
+        <div class="card">
+            <h5 class="card-title">My Cart</h5>
+        </div>
+        <div class="center">
+            <img src="https://en.mer.vn/public/theme/imgs/shop/empty-cart.svg"
+                alt="Cart Is Empty" style="height: max-content;">
+            <h3 style="color: red;">Your cart is empty!</h3>
+            <h6>Add Product to it now</h6>
+            <button routerLink="/userpage" class="btn btn-info">Shop Now</button>
+        </div>
+    </div>
+</ng-container>

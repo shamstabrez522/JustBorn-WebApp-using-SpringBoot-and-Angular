@@ -1,0 +1,66 @@
+<button type="submit" class="btn btn-primary" align="left" routerLink="/header"><i class="fa fa-arrow-left"></i><b>  Back</b></button>
+<button type="submit" class="btn btn-primary" style="float: right;" routerLink="" (click)="success()"><i class="fa fa-sign-out" aria-hidden="true"></i><b>  LogOut</b></button>
+
+<h1 align="center"><b>Products</b></h1>
+<div class="container">
+  <form #value="ngForm" (ngSubmit)="search(value.value)">
+    <button class="btn btn-primary" (click)=refreshPage() style="font-size: 12px;"><i class="fa fa-refresh" aria-hidden="true"></i></button>
+    <input type="text" ngModel name="search" #name="ngModel" align="right" width="50%" placeholder="enter product name or id" style="font-size: 12px;">
+    <button type="submit" class="btn btn-primary" style="font-size: 12px;"><i class="fa fa-search" aria-hidden="true"></i>
+    </button>
+    <!-- <div align="right">
+      <button routerLink="/iuproducts" class="btn btn-primary" style="font-size: 15px;">Insert</button>
+    </div> -->
+  </form>
+  <table class="table table-bordered table-stripped table-hover">
+    <thead class="bg-primary">
+      <tr>
+        <th>Product Id</th>
+        <th>Product Name</th>
+        <th>Category Id</th>
+        <th>Age</th>
+        <th>Product Price</th>
+        <th>Product Description</th>
+        <th>Product Image</th>
+        <th>Product Quantity</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody *ngFor="let p of product" class="bg-muted">
+      <tr>
+        <td>{{p.p_id}}</td>
+        <td>{{p.p_name}}</td>
+        <td>{{p.c_id}}</td>
+        <td>{{p.bage}} Months</td>
+        <td>{{p.p_price | currency:'INR'}}</td>
+        <td>{{p.p_desc}}</td>
+        <td><img style="width: 120px;" src="{{p.p_img}}" alt=""></td>
+        <!-- <td>{{p.p_img}}</td> -->
+        <td>{{p.a_quan}} Qty</td>
+        <td>
+          <button type="submit" class="btn btn-primary" data-toggle="modal" data-target="#mymodal" (click)="update(p)" style="font-size: 15px;"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button>
+          <button (click)="delete(p.p_id)" class="btn btn-danger" style="font-size: 15px;"><i class="fa fa-trash" aria-hidden="true"></i></button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<div class="modal" id="mymodal" role="dialog">
+  <div class="modal-content">
+    <div class="container">
+      <div>
+        <form #add="ngForm" (ngSubmit)="editProduct(add.value)" id="updata">
+          Product Id: <input type="hidden" ngModel name="p_id" [(ngModel)]=" updateData.p_id"><br>
+          Product Name: <input ngModel name="p_name" [(ngModel)]=" updateData.p_name"><br>
+          Category Id: <input ngModel name="c_id" [(ngModel)]=" updateData.c_id"><br>
+          Age: <input ngModel name="bage" [(ngModel)]=" updateData.bage"><br>
+          Product Price: <input ngModel name="p_price" [(ngModel)]=" updateData.p_price"><br>
+          Product Description: <input ngModel name="p_desc" [(ngModel)]=" updateData.p_desc"><br>
+          Product Image: <input ngModel name="p_img" [(ngModel)]=" updateData.p_img"><br>
+          Product Quantity: <input ngModel name="a_quan" [(ngModel)]=" updateData.a_quan"><br>
+          <button class="btn btn-success" style="font-size: 20px;" (click)="style()" align="center" style="font-size: 15px;">Save</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,58 @@
+<button type="submit" class="btn btn-primary" align="left" routerLink="/header"><i class="fa fa-arrow-left"></i><b>Back</b></button>
+<button type="submit" class="btn btn-primary" style="float: right;" routerLink="" (click)="success()"><i class="fa fa-sign-out" aria-hidden="true"></i><b>  LogOut</b></button>
+
+<h1 align="center"><b>User Data</b></h1>
+<div class="container">
+  <form #value="ngForm" (ngSubmit)="search(value.value)">
+    <button class="btn btn-primary" (click)=refreshPage()><i class="fa fa-refresh" aria-hidden="true"></i></button>
+    <input type="text" ngModel name="search" #name="ngModel" placeholder="enter user name or id">
+    <button type="submit" class="btn btn-primary"><i class="fa fa-search" aria-hidden="true"></i></button>
+  </form>
+  <table class="table table-bordered table-stripped table-hover">
+    <thead class="bg-primary">
+      <tr>
+        <th>User Id</th>
+        <th>User Name</th>
+        <th>User Type</th>
+        <th>User Gender</th>
+        <th>User Mail Id</th>
+        <th>User Phone Number</th>
+        <th>Password</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody *ngFor="let u of user" class="bg-muted">
+      <tr>
+        <td>{{u.u_id}}</td>
+        <td>{{u.u_name | gender:u.u_gender}}</td>
+        <td>{{u.u_type}}</td>
+        <td>{{u.u_gender}}</td>
+        <td>{{u.u_mailid}}</td>
+        <td>{{u.u_phone}}</td>
+        <td>{{u.password}}</td>
+        <td>
+          <button type="submit" class="btn btn-primary" data-toggle="modal" data-target="#mymodal" (click)="update(u)" ><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button>
+          <button (click)="delete(u.u_id)" class="btn btn-danger"><i class="fa fa-trash" aria-hidden="true"></i></button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<div class="modal" id="mymodal" role="dialog">
+  <div class="modal-content">
+    <div class="container">
+      <div>
+        <form #add="ngForm" (ngSubmit)="editUser(add.value)">
+          User Id: <input type="hidden" ngModel name="u_id" [(ngModel)]=" updateData.u_id"><br>
+          User Name: <input ngModel name="u_name" [(ngModel)]=" updateData.u_name"><br>
+          User Type: <input ngModel name="u_type" [(ngModel)]=" updateData.u_type"><br>
+          User Gender: <input ngModel name="u_gender" [(ngModel)]=" updateData.u_gender"><br>
+          User Mail Id: <input ngModel name="u_mailid" [(ngModel)]=" updateData.u_mailid"><br>
+          User Phone: <input ngModel name="u_phone" [(ngModel)]=" updateData.u_phone"><br>
+          User Password: <input type="hidden" ngModel name="password" [(ngModel)]=" updateData.password"><br>
+          <button class="btn btn-success" (click)="style()" style="font-size: 12px;">Save</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

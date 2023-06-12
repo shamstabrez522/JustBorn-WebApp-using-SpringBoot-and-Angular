@@ -1,0 +1,48 @@
+<body>
+    <div class="bg"></div>
+    <div class="bg bg2"></div>
+    <div class="bg bg3"></div>
+    <div class="content">
+        <div class="card" style="width: 35rem;">
+            <div class="card-body">
+                <h2 class="card-title"><b>Just Born</b></h2>
+                <p class="card-text">Payment fraud is any type of false or illegal transaction completed by a
+                    cybercriminal. The perpetrator deprives the victim of funds, personal property</p>
+            </div>
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item">
+                    <h3><b>Name :</b> {{customerinfo.u_name}}</h3>
+                </li>
+                <li class="list-group-item">
+                    <h3><b>Mail : </b>{{customerinfo.u_mailid}}</h3>
+                </li>
+                <li class="list-group-item">
+                    <h3><b>Phone : </b>{{customerinfo.u_phone}}</h3>
+                </li>
+            </ul>
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item">
+                    <h2>Total Orders: {{totalProduct}}&nbsp;&nbsp;|&nbsp;&nbsp;Amount: ₹{{finalAmount}}</h2>
+                </li>
+            </ul>
+            <div class="card-body">
+                <button class="btn btn-danger" routerLink="/userpage/addtocart" style="font-size: 25px;">Go Back</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <button class="btn btn-success" (click)="pay(finalAmount*100)" style="font-size: 25px;">Pay 💳
+                </button><img
+                    src="https://freight.cargo.site/w/480/i/4fd4bbf6ff2b0aecae7a5ca877582f26b366b88af7c6e9a1cecf03b03b3dfbea/giphy-2.gif"
+                    width="20%">
+            </div>
+        </div>
+
+        <!-- <h1>Payment</h1>
+        <h3>Name</h3>{{customerinfo.u_name}}
+        <h3>Mail</h3>{{customerinfo.u_mailid}}
+        <h3>PhoneNumber</h3>{{customerinfo.u_phone}}
+        <h4>Total Orders:{{totalProduct}}</h4>
+        <h4>Amount:{{finalAmount}}</h4>
+        <button class="btn btn-info" (click)="pay(finalAmount*100)" style="font-size: 15px;">Pay 💳</button><img
+            src="https://freight.cargo.site/w/480/i/4fd4bbf6ff2b0aecae7a5ca877582f26b366b88af7c6e9a1cecf03b03b3dfbea/giphy-2.gif"
+            width="20%">
+        <img src="assets/logo.png"> -->
+    </div>
+</body>

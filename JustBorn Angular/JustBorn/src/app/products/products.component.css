@@ -1,0 +1,71 @@
+thead,tbody{
+    text-align: center;
+    font-size: larger;
+}
+thead{
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.modal-content {
+    position: relative;
+    bottom: 0;
+    background-image: url(/assets/logo.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    /* background-color: aqua; */
+    font-size: x-large;
+    margin: auto;
+    margin-top: 10%;
+    margin-left: 18%;
+    padding: 0;
+    border: 1px solid rgb(248, 242, 242);
+    width: 65%;
+    -webkit-animation-name: slideIn;
+    -webkit-animation-duration: 0.4s;
+    animation-name: slideIn;
+    animation-duration: 0.4s
+}
+@-webkit-keyframes slideIn {
+    from {
+        bottom: -300px;
+        opacity: 0
+    }
+
+    to {
+        bottom: 0;
+        opacity: 1
+    }
+}
+
+@keyframes slideIn {
+    from {
+        bottom: -300px;
+        opacity: 0
+    }
+
+    to {
+        bottom: 0;
+        opacity: 1
+    }
+}
+
+@-webkit-keyframes fadeIn {
+    from {
+        opacity: 0
+    }
+
+    to {
+        opacity: 1
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0
+    }
+
+    to {
+        opacity: 1
+    }
+}

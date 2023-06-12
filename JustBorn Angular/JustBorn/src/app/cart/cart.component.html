@@ -1,0 +1,35 @@
+<h1 align="center"><b>Order Details</b></h1>
+<div class="container">
+  <table class="table table-bordered table-stripped table-hover">
+    <thead class="bg-info">
+      <tr>
+        <th>Order Id</th>
+        <th>Product Image</th>
+        <th>Product Name</th>
+        <th>Product Id</th>
+        <th>User Id</th>
+        <th>User Name</th>
+        <th>User Phone</th>
+        <th>Product Price</th>
+        <th>Quantity</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody *ngFor="let o of order" class="bg-primary">
+      <tr>
+        <td>{{o.o_id}}</td>
+        <td><img style="width: 10px;" src={{o.p_img}} alt=""></td>
+        <td>{{o.p_name}}</td>
+        <td>{{o.p_id}}</td>
+        <td>{{o.u_id}}</td>
+        <td>{{o.u_name}}</td>
+        <td>{{o.u_phone}}</td>
+        <td>{{o.qty}}</td>
+        <td>{{o.p_price}}</td>
+        <td>
+          <button (click)="delete(o.o_id)" class="btn btn-danger">Delete</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
